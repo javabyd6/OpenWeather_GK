@@ -1,17 +1,18 @@
 package pl.sda.openweather.Model;
 
+
 public class Weather {
 
-    private Location location;
-    private Current current;
-
-    public Weather(Location location, Current current) {
-        Location location1 = location;
-        Current current1 = current;
-    }
+    Location location;
+    Current current;
 
     public Weather() {
 
+    }
+
+    public Weather(Location location, Current current) {
+        this.location = location;
+        this.current = current;
     }
 
     public Location getLocation() {

@@ -1,8 +1,5 @@
-import com.fasterxml.jackson.databind.ObjectMapper;
-import pl.sda.openweather.Model.Weather;
-
+import Service.WeatherService;
 import java.io.IOException;
-import java.net.URL;
 import java.util.Scanner;
 
 public class Main {
@@ -13,11 +10,15 @@ public class Main {
         System.out.println("Podaj mnie nazwe miejscowosci:");
         String city = scanner.next();
 
-        URL url = new URL ("http://api.apixu.com/v1/current.json?key=08eeefcc833a4ff2b84122246191003&q=" + city  + "\n");
+      // URL url = new URL ("http://Bapi.apixu.com/v1/current.json?key=08eeefcc833a4ff2b84122246191003&q=" + city  + "\n");
+     //   ObjectMapper mapper = new ObjectMapper();
+     //   Weather weather = mapper.readValue(url, Weather.class);
+    //    System.out.println("Temparatura w " + city + " wynosi: " + weather.getCurrent().getTemp_c() + " stopni C");
 
-        ObjectMapper mapper = new ObjectMapper();
-        Weather weather = mapper.readValue(url, Weather.class);
-        System.out.println("Temparatura w " + city + " wynosi: " + weather.getCurrent().getTemp_c() + " stopni C");
+        final String url = "http://api.apixu.com/v1/current.json";
+        final String apiKey = "08eeefcc833a4ff2b84122246191003";
+        WeatherService weatherService = new WeatherService(url,apiKey);
+        weatherService.getCityWeather(city);
 
     }
 
